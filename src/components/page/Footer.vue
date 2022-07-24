@@ -30,13 +30,6 @@
                     </v-icon>
                 </v-btn>
             </div>
-            <div class="licence">
-                <p class="mb-0">
-                    {{ version }} - {{ $t('Footer.under') }}
-                    <а
-                    >Made by: Milen Stanchev</a>
-                </p>
-            </div>
         </div>
     </footer>
 </template>
