@@ -80,7 +80,7 @@ export default {
         z-index: 1;
         width: 100%;
     }
-    background-color: #ded3af;
+    background-color: #9e7aae;
     .home-page__main {
         position: relative;
 
@@ -139,7 +139,7 @@ export default {
 }
 @media (max-width: 660px) {
     .home-page {
-        background-color: #ded3af;
+        background-color: #9e7aae;
         .home-page__main .home-page__main__container {
             .home-page__main__layout {
                 flex-direction: column-reverse;
