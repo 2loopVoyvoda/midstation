@@ -119,7 +119,7 @@ export default {
 .header {
     z-index: 1;
     padding: 0 5%;
-    background-color: #f1e9d6 !important;
+    background-color: #a8a4e5 !important;
     .header__nav,
     .header__nav__btns {
         display: flex;
