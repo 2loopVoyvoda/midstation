@@ -11,32 +11,31 @@
                     </div>
                     <v-layout class="home-page__main__content">
                         <div class="box">
-                            <SearchBox :dialogCustomOpen="dialogCustomOpen" />
+                            <SearchBox />
                         </div>
                     </v-layout>
                 </v-layout>
             </v-container>
-            <v-btn id="btnMaps" href="#maps-container" large fab color="secondary" dark>
+            <v-btn id="btnMaps" href="#maps" large fab color="secondary" dark>
                 <v-icon>mdi-arrow-down</v-icon>
             </v-btn>
         </section>
-        <MapsContainer />
+        <section id="maps">
+            <MapCard v-for="(map, index) in maps" :key="index" :map="map" />
+        </section>
     </ContentPage>
 </template>
 
 <script>
 import SearchBox from '@/components/home/SearchBox';
 import ContentPage from '@/components/page/ContentPage';
-import { GAME_MODE } from '../constants';
-import MapsContainer from '@/components/home/MapsContainer.vue';
+import MapCard from '@/components/home/maps/MapCard';
+import { mapActions, mapGetters } from 'vuex';
 export default {
     components: {
         ContentPage,
         SearchBox,
-        MapsContainer,
-    },
-    props: {
-        dialogCustomOpen: Boolean,
+        MapCard,
     },
     mounted() {
         if (this.$route.params && this.$route.params.partyParams) {
@@ -44,20 +43,19 @@ export default {
                 .split(',')
                 .map((val) => parseFloat(val));
 
-            if (params.length >= 12 && params.length % 2 === 0) {
+            if (params.length === 12) {
                 const difficulty = params[0];
                 const timeLimitation = params[1];
-                const rounds = new Array((params.length - 2) / 2)
-                    .fill(0)
-                    .map((_, round) => {
-                        const index = (round + 1) * 2;
-                        return params.slice(index, index + 2);
-                    });
-
+                const rounds = [
+                    params.slice(2, 4),
+                    params.slice(4, 6),
+                    params.slice(6, 8),
+                    params.slice(8, 10),
+                    params.slice(10, 12),
+                ];
                 this.$router.push({
                     name: 'street-view',
                     params: {
-                        modeSelected: GAME_MODE.CLASSIC,
                         time: timeLimitation,
                         difficulty: difficulty,
                         roundsPredefined: rounds,
@@ -65,22 +63,23 @@ export default {
                 });
             }
         }
+        this.getListMaps();
+    },
+    methods: { ...mapActions(['getListMaps']) },
+    computed: {
+        ...mapGetters(['maps']),
     },
 };
 </script>
 
 <style scoped lang="scss">
-.v-application--is-rtl .home-page__traveler-img{
-    transform: scaleX(-1)
-
-}
 .home-page {
     .demo-alert {
         position: absolute;
         z-index: 1;
         width: 100%;
     }
-    background-color: #ded3af;
+    background-color: #9e7aae;
     .home-page__main {
         position: relative;
 
@@ -91,13 +90,12 @@ export default {
             width: 100%;
             background: url('../assets/home/world.svg');
             background-size: cover;
-            background-position: top;
             .home-page__main__layout {
-                height: calc(70vh - 100px);
+                height: calc(100vh - 100px);
                 flex-wrap: nowrap;
                 justify-items: end;
                 .box {
-                    margin: auto;
+                    margin: 28vh auto;
                     width: 35vw;
                     max-width: 100%;
                 }
@@ -106,14 +104,16 @@ export default {
                     min-width: 65%;
                 }
                 .home-page__traveler-container {
+                    position: relative;
                     height: auto;
                     width: 100%;
                     max-width: 50vw;
-                    display: flex;
-                    justify-content: flex-start;
                     .home-page__traveler-img {
-                        max-width: 30vw;
-                        max-height: 60vh;
+                        position: absolute;
+                        bottom: 0;
+                        width: 100%;
+                        max-width: 772px;
+                        max-height: 814px;
                     }
                 }
             }
@@ -121,14 +121,21 @@ export default {
         #btnMaps {
             position: absolute;
             margin: auto;
-            bottom: 0.4rem;
+            bottom: 4rem;
             left: 0;
             right: 0;
         }
     }
-    
+    #maps {
+        padding: 3rem 15px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        column-gap: 30px;
+        row-gap: 1.5rem;
+        justify-items: center;
+    }
 }
-@media (max-width: 1300px) and (min-width: 600px) {
+@media (max-width: 1100px) and (min-width: 600px) {
     .home-page
         .home-page__main
         .home-page__main__container
@@ -139,7 +146,7 @@ export default {
 }
 @media (max-width: 660px) {
     .home-page {
-        background-color: #ded3af;
+        background-color: #9e7aae;
         .home-page__main .home-page__main__container {
             .home-page__main__layout {
                 flex-direction: column-reverse;
@@ -152,6 +159,13 @@ export default {
     }
 }
 
+@media (max-width: 330px) {
+    .home-page #maps {
+        grid-auto-columns: 90%;
+        column-gap: 0;
+        padding: 3rem 10px;
+    }
+}
 
 @media (max-height: 550px) {
     .home-page
