@@ -14,7 +14,7 @@
                 <v-btn
                     icon
                     color="#FFFFFF"
-                    href="https://twitter.com/"
+                    href="https://twitter.com/2loopVoyvoda"
                 >
                     <v-icon size="30">
                         mdi-twitter
@@ -23,7 +23,7 @@
                 <v-btn
                     icon
                     color="#FFFFFF"
-                    href="https://www.instagram.com/leninked.in/"
+                    href="https://www.instagram.com/leninkedin.js/"
                 >
                     <v-icon size="30">
                         mdi-instagram
