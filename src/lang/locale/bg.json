@@ -2,9 +2,9 @@
     "Home": {
         "placeVisited": "0 посетени места | 1 посетено място | {count} посетени места",
         "historyBtn": "ИСТОРИЯ",
-        "medalsBtn": "MEDALS",
+        "medalsBtn": "МЕДАЛИ",
         "about": "ИНФОРМАЦИЯ",
-        "createMap": "Create Map",
+        "createMap": "Създай карта",
         "searchBar": {
             "customLoaded": "Картата е заредена.",
             "enterCity": "Въведи град, провинция или страна."
@@ -28,12 +28,12 @@
         "streamerModeActivate": "Активиране на стриймър режим",
         "streamerModeDetails": "URL адресите и имената на стаите са скрити",
         "mapSavedAlert": {
-            "title": "Map saved 🎉",
-            "subtitle": "You will find it in your map lists"
+            "title": "Запазена е! 🎉",
+            "subtitle": "Ще намериш картата в списъка ти с карти."
         },
         "HomeCard": {
-            "edit": "Edit",
-            "delete": "Delete",
+            "edit": "Редактиране",
+            "delete": "Изтриване",
             "medal": {
                 "platinum": "Platinum",
                 "gold": "Gold",
@@ -42,14 +42,14 @@
             }
         },
         "HomeCardMode": {
-            "map": "Map",
-            "area": "Area"
+            "map": "Карта",
+            "area": "Площ"
         },
         "Sections": {
-            "areasTitle": "Areas",
-            "mapsTitle": "Maps",
-            "pleaseSelectLabel": "You seems lost, please select a type or you can ",
-            "barrelRoll": "do a barrel roll"
+            "areasTitle": "Места",
+            "mapsTitle": "Карти",
+            "pleaseSelectLabel": "Май сте изгубен. Изберете тип, или... ",
+            "barrelRoll": "се превърти като буре"
         }
     },
     "StreetView": {
@@ -150,10 +150,10 @@
         "infinite": "Безкрайно"
     },
     "CardRoomMap": {
-        "title": "Define your map",
-        "loadBtn": "Load MAP",
-        "reset": "Reset",
-        "cantPlayGeoJson": "Invalid GeoJSON, you need to have more than 5 positions."
+        "title": "Определете карта",
+        "loadBtn": "Зареди картата",
+        "reset": "нулиране",
+        "cantPlayGeoJson": "Невалиден GeoJSON, трябва да имате повече от 5 позиции."
     },
     "CardRoomSettings": {
         "title": "Настройки на играта",
@@ -170,9 +170,9 @@
             "normal": "нормален",
             "time": "време"
         },
-        "selectAreas": "Select Areas",
-        "moreSettings": "More settings",
-        "optimiseStreetView": "StreetView Optimize (only official)"
+        "selectAreas": "Изберете области",
+        "moreSettings": "Още настройки",
+        "optimiseStreetView": "Оптимизиране на StreetView"
     },
     "CardRoomDifficulty": {
         "title": "Въведете ниво на трудност.",
@@ -208,7 +208,7 @@
     "yes": "да",
     "no": "не",
     "AlertUpdate": {
-        "label": "A new version is available. Click on the button to obtain it.",
+        "label": "Има нова версия, натиснете бутона, за да презаредите страницата",
         "btn": "Update"
     }
 }
